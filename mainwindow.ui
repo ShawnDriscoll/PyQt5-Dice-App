@@ -26,8 +26,8 @@
    <string>Dice Roll</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>dice_icon.jpg</normaloff>dice_icon.jpg</iconset>
+   <iconset resource="dice_app_files.qrc">
+    <normaloff>:/images/dice_art.ico</normaloff>:/images/dice_art.ico</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QSpinBox" name="diceCount">
@@ -305,6 +305,10 @@
    </property>
   </widget>
   <action name="actionRoll_Dice">
+   <property name="icon">
+    <iconset resource="dice_app_files.qrc">
+     <normaloff>:/images/dice_art.ico</normaloff>:/images/dice_art.ico</iconset>
+   </property>
    <property name="text">
     <string>Roll Dice</string>
    </property>
@@ -354,6 +358,8 @@
   <tabstop>clearButton</tabstop>
   <tabstop>quitButton</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="dice_app_files.qrc"/>
+ </resources>
  <connections/>
 </ui>

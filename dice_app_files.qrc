@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="/">
+    <file>images/dice_art.ico</file>
+  </qresource>
+</RCC>
