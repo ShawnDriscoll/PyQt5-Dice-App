@@ -114,6 +114,10 @@ class DiceWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
+    
+    # Use print(PyQt5.QtWidgets.QStyleFactory.keys()) to find a setStyle you like, instead of 'Fusion'
+    
+    app.setStyle('Fusion')
     MainApp = DiceWindow()
     MainApp.show()
     sys.exit(app.exec_())
