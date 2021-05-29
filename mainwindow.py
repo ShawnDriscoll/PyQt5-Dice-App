@@ -18,7 +18,7 @@ class Ui_MainWindow(object):
         MainWindow.setMinimumSize(QtCore.QSize(308, 228))
         MainWindow.setMaximumSize(QtCore.QSize(308, 228))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/images/dice_art.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/icons/die"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -156,4 +156,4 @@ class Ui_MainWindow(object):
         self.actionQuit.setShortcut(_translate("MainWindow", "Ctrl+Q"))
         self.actionAbout_Dice_Roll.setText(_translate("MainWindow", "About Dice Roll"))
         self.actionAbout_Dice_Roll.setStatusTip(_translate("MainWindow", "About Dice Roll"))
-import dice_app_files_rc
+import resources_rc
