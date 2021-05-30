@@ -9,7 +9,6 @@ Logs/
 #############
 ## Windows
 #############
-
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -22,6 +21,7 @@ Desktop.ini
 ## Python
 ############
 __pycache__/
+
 
 ##################
 ## Python Packages
@@ -53,3 +53,10 @@ temp/
 ##############
 #*.ui
 #*.qrc
+
+
+##############
+## PyInstaller
+##############
+*.spec
+build/
