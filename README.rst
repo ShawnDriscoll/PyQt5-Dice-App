@@ -6,6 +6,16 @@
 .. figure:: images/pyqt5_dice_roll_app.png
 
 
+Some Things You Will Need
+-------------------------
+
+* **colorama 0.4.4**
+
+   Because CMD may have some colored text messages for debugging invalid die rolls.
+   
+* **PyQt5 5.15.2**
+
+   PyQt5 is the framework used for displaying the Window GUI and buttons, etc.
 
 Contact
 -------
