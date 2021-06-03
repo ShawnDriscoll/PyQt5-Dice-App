@@ -13,7 +13,7 @@ Some Things You Will Need
 
    Because CMD may have some colored text messages for debugging invalid die rolls.
    
-* **PyQt5 5.15.2**
+* **PyQt5 5.15.4**
 
    PyQt5 is the framework used for displaying the Window GUI and buttons, etc.
 
