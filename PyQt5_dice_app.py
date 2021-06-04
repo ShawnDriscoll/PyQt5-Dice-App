@@ -224,18 +224,6 @@ if __name__ == '__main__':
     hideApp = QAction("Hide App")
     hideApp.triggered.connect(MainApp.hide_app)
     menu.addAction(hideApp)
-    
-    # action1 = QAction("Hex")
-    # action1.triggered.connect(copy_color_hex)
-    # menu.addAction(action1)
-
-    # action2 = QAction("RGB")
-    # action2.triggered.connect(copy_color_rgb)
-    # menu.addAction(action2)
-
-    # action3 = QAction("HSV")
-    # action3.triggered.connect(copy_color_hsv)
-    # menu.addAction(action3)
 
     quit = QAction("Quit")
     quit.triggered.connect(app.quit)
