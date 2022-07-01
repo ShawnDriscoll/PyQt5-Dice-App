@@ -9,10 +9,10 @@
 Some Things You Will Need
 -------------------------
 
-* **colorama 0.4.4**
+* **Python 3.9+**
 
-   Because CMD may have some colored text messages for debugging invalid die rolls.
-   
+   This code was written using Python 3.9.11.
+
 * **PyQt5 5.15.4**
 
    PyQt5 is the framework used for displaying the Window GUI and buttons, etc.

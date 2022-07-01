@@ -153,11 +153,6 @@ class DiceWindow(QMainWindow, Ui_MainWindow):
         self.close()
         
     def activate(self, reason):
-        # if reason == QSystemTrayIcon.Trigger:  # systray icon clicked.
-            # if self.isVisible():
-                # self.hide()
-            # else:
-                # self.show()
         if reason == QSystemTrayIcon.Trigger:  # systray icon clicked.
             if self.isVisible():
                 self.hide()
@@ -176,7 +171,7 @@ if __name__ == '__main__':
     app.setQuitOnLastWindowClosed(False)
     
     # Use print(QStyleFactory.keys()) to find a setStyle you like, instead of 'Fusion'
-
+    
     app.setStyle('Fusion')
     
     darkPalette = QPalette()
@@ -207,7 +202,7 @@ if __name__ == '__main__':
     app.setPalette(darkPalette)
     
     # Create the systray icon
-    icon = QIcon(":/icons/die")
+    icon = QIcon(":/icons/die_icon.ico")
     
     # Create the systray
     tray = QSystemTrayIcon()
