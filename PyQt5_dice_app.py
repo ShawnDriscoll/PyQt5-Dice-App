@@ -3,7 +3,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from mainwindow import Ui_MainWindow
 from aboutdialog import Ui_aboutDialog
-from rpg_tools.PyDiceroll import roll
+from rpg_tools.pydice import roll
 import sys
 
 die_types = ['D4', 'D6', 'D8', 'D10', 'D12', 'D20', 'D30', 'D66', 'D100']
@@ -220,7 +220,7 @@ if __name__ == '__main__':
     hideApp.triggered.connect(MainApp.hide_app)
     menu.addAction(hideApp)
 
-    quit = QAction("Quit")
+    quit = QAction("Exit")
     quit.triggered.connect(app.quit)
     menu.addAction(quit)
     
