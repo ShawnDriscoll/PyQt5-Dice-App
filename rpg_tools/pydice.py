@@ -1,5 +1,5 @@
 #
-#   pydice.py 3.12.5
+#   pydice.py 3.12.7
 #
 #   Written for Python 3.11.4
 #
@@ -12,9 +12,9 @@
 '''
 pydice module containing roll()
 
-Usage:
-    from pydice import roll
-    print(roll('2D6'))
+Usage:\n
+    from pydice import roll\n
+    print(roll('2D6'))\n
 
     Will roll two 6-sided dice, returning an integer
 '''
@@ -26,7 +26,7 @@ import logging
 import sys
 
 __version__ = '3.12'
-__release__ = '3.12.5'
+__release__ = '3.12.7'
 __py_version_req__ = (3,11,4)
 __author__ = 'Shawn Driscoll <shawndriscoll@hotmail.com>\nshawndriscoll.blogspot.com'
 
@@ -63,9 +63,9 @@ __error__ = -9999
 
 def _dierolls(dtype, dcount):
     '''
-    Takes two integer arguments:
-        dtype (the number of sides for the dice)
-        dcount (the number of dice to roll)
+    Takes two integer arguments:\n
+        dtype (the number of sides for the dice)\n
+        dcount (the number of dice to roll)\n
     
     and returns an integer value.
     
@@ -93,10 +93,10 @@ def _dierolls(dtype, dcount):
 def roll(dice='2d6'):
     '''
     The dice types to roll are:\n
-    4dF, D01, D2, D3, D4, D5, D6, D8, D09, D10, D12, D20,
-    D30, D099, D100, D0999, D1000, D44, D66, D666, D88,
-    DD, FLUX, GOODFLUX, BADFLUX, BOON, BANE, ADVANTAGE,
-    DISADVANTAGE, SICHERMAN, HEX, EHEX, and also Traveller5's 1D thru 10D rolls
+    '4dF', 'D01', 'D2', 'D3', 'D4', 'D5', 'D6', 'D8', 'D09', 'D10', 'D12', 'D20',
+    'D30', 'D099', 'D100', 'D0999', 'D1000', 'D44', 'D66', 'D666', 'D88',
+    'DD', 'FLUX', 'GOODFLUX', 'BADFLUX', 'BOON', 'BANE', 'ADVANTAGE',
+    'DISADVANTAGE', 'SICHERMAN', 'HEX', 'EHEX', and also Traveller5's 1D thru 10D rolls
 
     Some examples are:\n
     roll('D6') or roll('1D6') -- roll one 6-sided die\n
@@ -322,9 +322,9 @@ def roll(dice='2d6'):
 
     # check if negative number of dice was entered
     if dice[0] == '-':
-        log.error('Negative dice count found! [ERROR]')
-        print('Negative dice count found! [ERROR]')
-        dice_log.error("Negative number of dice = '" + dice + "' [ERROR]")
+        log.error('[ERROR] Negative dice count found: %s' % dice)
+        print('[ERROR] Negative dice count found: %s' % dice)
+        dice_log.error('[ERROR] Negative dice count found: %s' % dice)
         return __error__
 
     #get dice modifier
@@ -336,8 +336,10 @@ def roll(dice='2d6'):
             dice_mod = int(dice[ichar2:len(dice)])
             dice = dice[:ichar2]
         except ValueError:
+            log.error('[ERROR] Not a valid dice modifier: %s' % dice[ichar2:len(dice)])
             print('[ERROR] Not a valid dice modifier: %s' % dice[ichar2:len(dice)])
             dice_log.error('[ERROR] Not a valid dice modifier: %s' % dice[ichar2:len(dice)])
+            return __error__
     else:
         ichar2 = dice.find('-')
         if ichar2 != -1:
@@ -345,8 +347,10 @@ def roll(dice='2d6'):
                 dice_mod = int(dice[ichar2:len(dice)])
                 dice = dice[:ichar2]
             except ValueError:
+                log.error('[ERROR] Not a valid dice modifier: %s' % dice[ichar2:len(dice)])
                 print('[ERROR] Not a valid dice modifier: %s' % dice[ichar2:len(dice)])
                 dice_log.error('[ERROR] Not a valid dice modifier: %s' % dice[ichar2:len(dice)])
+                return __error__
 
     if dice == 'BOON':
         dice = '3D6H2'
@@ -382,6 +386,7 @@ def roll(dice='2d6'):
 
     # look for H or L in string (for keeping higher or lower dice)
     keep = None
+    temp_dice = dice
     ichar4 = dice.find('L')
     if ichar4 == -1:
         ichar4 = dice.find('H')
@@ -391,6 +396,11 @@ def roll(dice='2d6'):
         keep = dice[ichar4:len(dice)]
     if keep != None:
         dice = dice[0:len(dice)-2]
+    if keep == 'H' or keep == 'L':
+        log.error('[ERROR] No number of high or low dice kept: %s' % temp_dice)
+        print('[ERROR] No number of high or low dice kept: %s' % temp_dice)
+        dice_log.error('[ERROR] No number of high or low dice kept: %s' % temp_dice)
+        return __error__
 
     # look for DD in the string (for destructive dice rolls)
     ichar1 = dice.find('DD')
@@ -466,9 +476,9 @@ def roll(dice='2d6'):
                     dice_log.info("'%s' = %d%s+%d = %d %s" % (dice, num_dice, dice_type, dice_mod, rolled, dice_comment))
                     return rolled
             if dice_type == 'D1':
-                print("WARNING: The '1D1' roll has been deprecated since roll() v3.12.4.")
+                print("WARNING: The '1D1' roll has been deprecated in roll() v3.12.4.")
                 print("Using '1D01' for the roll instead.")
-                dice_log.warning("WARNING: The '1D1' roll has been deprecated since roll() v3.12.4.")
+                dice_log.warning("WARNING: The '1D1' roll has been deprecated in roll() v3.12.4.")
                 dice_log.warning("Using '1D01' for the roll instead.")
                 dice_type ='D01'
             if dice_type == 'D01' and num_dice == 1 and dice_mod == 0:
@@ -600,7 +610,7 @@ def roll(dice='2d6'):
                 dice_log.info("'%s' = (%d%s+%d) * 10 = %d %s" % (dice, num_dice, dice_type, dice_mod, rolled, dice_comment))
                 return rolled
                                                     
-    log.error('Wrong dice type entered! [ERROR]')
+    log.error('[ERROR] Wrong dice type entered: %s' % org_dice)
     dice_log.error("!!!!!!!!!!!!!!!!!!!!! DICE ERROR! '" + org_dice + "' is unknown !!!!!!!!!!!!!!!!!!!!!!!!!")
     
     print()

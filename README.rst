@@ -11,11 +11,16 @@ Some Things You Will Need
 
 * **Python 3.11+**
 
-   This code was written using Python 3.11.4.
+   This code was written using Python 3.11.
 
 * **PyQt5 5.15.9**
 
    PyQt5 is the framework used for displaying the Window GUI and buttons, etc.
+
+* **Qt Designer**
+
+   A WYSIWYG tool for designing Windows GUIs for your Python programs. Windows and Mac versions are
+   available at https://build-system.fman.io/qt-designer-download
 
 Contact
 -------
