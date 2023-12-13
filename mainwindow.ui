@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>308</width>
-    <height>228</height>
+    <width>376</width>
+    <height>339</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -18,9 +18,15 @@
   </property>
   <property name="maximumSize">
    <size>
-    <width>308</width>
-    <height>228</height>
+    <width>1000</width>
+    <height>1000</height>
    </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Noto Sans</family>
+    <pointsize>12</pointsize>
+   </font>
   </property>
   <property name="windowTitle">
    <string>Dice Roll</string>
@@ -33,10 +39,10 @@
    <widget class="QSpinBox" name="diceCount">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>50</y>
-      <width>42</width>
-      <height>22</height>
+      <x>30</x>
+      <y>60</y>
+      <width>51</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="toolTip">
@@ -55,10 +61,10 @@
    <widget class="QSpinBox" name="diceDM">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>50</y>
-      <width>42</width>
-      <height>22</height>
+      <x>200</x>
+      <y>60</y>
+      <width>51</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="toolTip">
@@ -78,9 +84,9 @@
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>50</y>
-      <width>51</width>
-      <height>22</height>
+      <y>60</y>
+      <width>61</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="toolTip">
@@ -96,8 +102,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>50</y>
+      <x>170</x>
+      <y>70</y>
       <width>16</width>
       <height>16</height>
      </rect>
@@ -112,8 +118,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>50</y>
+      <x>260</x>
+      <y>70</y>
       <width>16</width>
       <height>16</height>
      </rect>
@@ -128,9 +134,9 @@
    <widget class="QLabel" name="diceRoll">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>40</y>
-      <width>46</width>
+      <x>290</x>
+      <y>60</y>
+      <width>51</width>
       <height>41</height>
      </rect>
     </property>
@@ -162,10 +168,10 @@
    <widget class="QLabel" name="countLabel">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>20</y>
+      <x>30</x>
+      <y>30</y>
       <width>46</width>
-      <height>13</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
@@ -178,10 +184,10 @@
    <widget class="QLabel" name="typeLabel">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>20</y>
-      <width>46</width>
-      <height>13</height>
+      <x>105</x>
+      <y>30</y>
+      <width>51</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
@@ -194,10 +200,10 @@
    <widget class="QLabel" name="dmLabel">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>20</y>
-      <width>46</width>
-      <height>13</height>
+      <x>190</x>
+      <y>30</y>
+      <width>71</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
@@ -210,10 +216,10 @@
    <widget class="QLabel" name="rollLabel">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>20</y>
+      <x>290</x>
+      <y>30</y>
       <width>46</width>
-      <height>13</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
@@ -226,10 +232,10 @@
    <widget class="QPushButton" name="rollButton">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>100</y>
-      <width>75</width>
-      <height>23</height>
+      <x>30</x>
+      <y>130</y>
+      <width>91</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="toolTip">
@@ -242,10 +248,10 @@
    <widget class="QPushButton" name="clearButton">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>100</y>
-      <width>75</width>
-      <height>23</height>
+      <x>144</x>
+      <y>130</y>
+      <width>91</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="toolTip">
@@ -258,10 +264,10 @@
    <widget class="QPushButton" name="quitButton">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>100</y>
-      <width>75</width>
-      <height>23</height>
+      <x>260</x>
+      <y>130</y>
+      <width>81</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="toolTip">
@@ -274,10 +280,10 @@
    <widget class="QTextBrowser" name="rollBrowser">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>140</y>
-      <width>151</width>
-      <height>41</height>
+      <x>160</x>
+      <y>190</y>
+      <width>181</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="toolTip">
@@ -287,19 +293,11 @@
    <widget class="QLineEdit" name="rollInput">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>160</y>
-      <width>61</width>
-      <height>21</height>
+      <x>30</x>
+      <y>240</y>
+      <width>111</width>
+      <height>31</height>
      </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>MS Shell Dlg 2</family>
-      <pointsize>8</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
     </property>
     <property name="toolTip">
      <string>Enter a Roll</string>
@@ -309,9 +307,9 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>140</y>
-      <width>61</width>
-      <height>20</height>
+      <y>210</y>
+      <width>91</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -327,11 +325,17 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>308</width>
-     <height>21</height>
+     <width>376</width>
+     <height>28</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMenu">
+    <property name="font">
+     <font>
+      <family>MS Shell Dlg 2</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="title">
      <string>&amp;Menu</string>
     </property>
@@ -350,6 +354,11 @@
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar">
+   <property name="font">
+    <font>
+     <family>MS Shell Dlg 2</family>
+    </font>
+   </property>
    <property name="sizeGripEnabled">
     <bool>false</bool>
    </property>
@@ -365,6 +374,11 @@
    <property name="statusTip">
     <string>Roll the dice</string>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
   </action>
   <action name="actionClear_All">
    <property name="text">
@@ -372,6 +386,11 @@
    </property>
    <property name="statusTip">
     <string>Clear all fields</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
    </property>
   </action>
   <action name="actionQuit">
@@ -381,6 +400,11 @@
    <property name="statusTip">
     <string>Quit this program</string>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
   </action>
   <action name="actionAbout_Dice_Roll">
    <property name="text">
@@ -388,6 +412,11 @@
    </property>
    <property name="statusTip">
     <string>About Dice Roll</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
    </property>
   </action>
  </widget>

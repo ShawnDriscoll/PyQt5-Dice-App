@@ -1,11 +1,9 @@
 #
-#   pydice.py 3.12.7
+#   pydice.py 3.12.9
 #
-#   Written for Python 3.11.4
+#   Written for Python 3.11.6
 #
 #   To use this module: from pydice import roll
-#
-#   Make a dice roll
 #
 ##########################################################
 
@@ -26,14 +24,14 @@ import logging
 import sys
 
 __version__ = '3.12'
-__release__ = '3.12.7'
-__py_version_req__ = (3,11,4)
+__release__ = '3.12.9'
+__py_version_req__ = (3,11,6)
 __author__ = 'Shawn Driscoll <shawndriscoll@hotmail.com>\nshawndriscoll.blogspot.com'
 
 dice_log = logging.getLogger('pydice')
-#dice_log.setLevel(logging.INFO)
+dice_log.setLevel(logging.INFO)
 #dice_log.setLevel(logging.DEBUG)
-dice_log.setLevel(logging.WARNING)
+#dice_log.setLevel(logging.WARNING)
 
 if not os.path.exists('Logs'):
     os.mkdir('Logs')
@@ -96,7 +94,7 @@ def roll(dice='2d6'):
     '4dF', 'D01', 'D2', 'D3', 'D4', 'D5', 'D6', 'D8', 'D09', 'D10', 'D12', 'D20',
     'D30', 'D099', 'D100', 'D0999', 'D1000', 'D44', 'D66', 'D666', 'D88',
     'DD', 'FLUX', 'GOODFLUX', 'BADFLUX', 'BOON', 'BANE', 'ADVANTAGE',
-    'DISADVANTAGE', 'SICHERMAN', 'HEX', 'EHEX', and also Traveller5's 1D thru 10D rolls
+    'DISADVANTAGE', 'SICHERMAN', 'S6', 'HEX', 'EHEX', and also Traveller5's 1D thru 10D rolls
 
     Some examples are:\n
     roll('D6') or roll('1D6') -- roll one 6-sided die\n
@@ -480,7 +478,7 @@ def roll(dice='2d6'):
                 print("Using '1D01' for the roll instead.")
                 dice_log.warning("WARNING: The '1D1' roll has been deprecated in roll() v3.12.4.")
                 dice_log.warning("Using '1D01' for the roll instead.")
-                dice_type ='D01'
+                dice_type = 'D01'
             if dice_type == 'D01' and num_dice == 1 and dice_mod == 0:
                 rolled = int(random() + .5)
                 dice_log.info("'%s' = %d%s = %d %s" % (dice_type, num_dice, dice_type, rolled, dice_comment))
@@ -609,6 +607,37 @@ def roll(dice='2d6'):
                 rolled = (_dierolls(6, num_dice) + dice_mod) * 10
                 dice_log.info("'%s' = (%d%s+%d) * 10 = %d %s" % (dice, num_dice, dice_type, dice_mod, rolled, dice_comment))
                 return rolled
+    
+    if dice[len(dice)-2:] == 'S6':
+        ichar1 = dice.find('S6')
+        if ichar1 == 0:
+            
+            # only one die is being rolled
+            num_dice = 1
+
+        if ichar1 != -1:
+            if ichar1 != 0:
+                
+                # is there a number found?
+                if dice[0:ichar1].isdigit():
+                    # how many dice are being rolled?
+                    num_dice = int(dice[0:ichar1])
+                else:
+                    num_dice = 0
+            if num_dice >= 1:
+
+                # roll the dice pool
+                success_rolls = 0
+                for i in range(num_dice):
+                    rolled = _dierolls(6, 1)
+                    if rolled == 6:
+                        success_rolls += 1
+                if success_rolls == 0:
+                    dice_log.info("'%s' = No Successes %s" % (dice, dice_comment))
+                else:
+                    dice_log.info("'%s' = %d Successes %s" % (dice, success_rolls, dice_comment))
+                return success_rolls
+                
                                                     
     log.error('[ERROR] Wrong dice type entered: %s' % org_dice)
     dice_log.error("!!!!!!!!!!!!!!!!!!!!! DICE ERROR! '" + org_dice + "' is unknown !!!!!!!!!!!!!!!!!!!!!!!!!")

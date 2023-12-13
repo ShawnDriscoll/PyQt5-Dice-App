@@ -19,7 +19,7 @@ Some Things You Will Need
 
 * **Qt Designer**
 
-   A WYSIWYG tool for designing Windows GUIs for your Python programs. Windows and Mac versions are
+   A tool for designing Windows GUIs based on the Qt framework for your Python programs. Windows and Mac versions are
    available at https://build-system.fman.io/qt-designer-download
 
 Contact

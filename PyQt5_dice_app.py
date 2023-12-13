@@ -168,7 +168,7 @@ class DiceWindow(QMainWindow, Ui_MainWindow):
         
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    app.setQuitOnLastWindowClosed(False)
+    app.setQuitOnLastWindowClosed(True) # set to False for app to remain persistent
     
     # Use print(QStyleFactory.keys()) to find a setStyle you like, instead of 'Fusion'
     
@@ -228,8 +228,6 @@ if __name__ == '__main__':
     
     # Add the menu to the tray
     tray.setContextMenu(menu)
-    
-    
     tray.activated.connect(MainApp.activate)
     
     app.exec_()
