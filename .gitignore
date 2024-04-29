@@ -1,6 +1,6 @@
 
 #############
-## PyDiceroll
+## pydice
 #############
 Logs/
 *.log
@@ -66,3 +66,4 @@ temp/
 *.spec
 build/
 dist/
+*.org
