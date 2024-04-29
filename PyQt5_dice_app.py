@@ -5,6 +5,8 @@ from mainwindow import Ui_MainWindow
 from aboutdialog import Ui_aboutDialog
 from rpg_tools.pydice import roll
 import sys
+import os
+import logging
 
 die_types = ['D4', 'D6', 'D8', 'D10', 'D12', 'D20', 'D30', 'D66', 'D100']
 
@@ -167,10 +169,28 @@ class DiceWindow(QMainWindow, Ui_MainWindow):
         
         
 if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    app.setQuitOnLastWindowClosed(True) # set to False for app to remain persistent
+
+    # Technicaly, the program starts here.
+
+    # This is where the logging is set up.
+    log = logging.getLogger('PyQt5_dice_app')
+    log.setLevel(logging.DEBUG)
+
+    if not os.path.exists('Logs'):
+        os.mkdir('Logs')
     
-    # Use print(QStyleFactory.keys()) to find a setStyle you like, instead of 'Fusion'
+    fh = logging.FileHandler('Logs/PyQt5_dice_app.log', 'w')
+ 
+    formatter = logging.Formatter('%(asctime)s %(levelname)s %(name)s - %(message)s', datefmt = '%a, %d %b %Y %H:%M:%S')
+    fh.setFormatter(formatter)
+    log.addHandler(fh)
+    
+    log.info('Logging started.')
+
+    app = QApplication(sys.argv)
+    app.setQuitOnLastWindowClosed(True) # set to False for app to remain as a persistent system tray icon when closed
+    
+    #print(QStyleFactory.keys()) # use to find a setStyle you like, instead of 'Fusion'
     
     app.setStyle('Fusion')
     
